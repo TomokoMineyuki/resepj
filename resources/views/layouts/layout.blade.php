@@ -80,6 +80,7 @@
         font-size: 24px;
       }
     </style>
+    <script src="https://kit.fontawesome.com/d995382c8b.js" crossorigin="anonymous"></script>
   </head>
   <body>
     @section('menubar')

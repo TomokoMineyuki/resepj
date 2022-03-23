@@ -17,6 +17,10 @@ class ShopController extends Controller
     }
 
     public function detail(Request $request) {
+        $data = [
+            'id'=> $request->id,
+            
+        ]
 
     }
 

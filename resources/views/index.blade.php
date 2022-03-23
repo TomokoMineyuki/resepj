@@ -38,7 +38,7 @@
           </div>
           <div class="crad__nav">
             <a class="card__btn" href="/detail/{{$item->id}}">詳しくみる</a>
-            <div class="card__like">♥</div>
+            <div class="card__like"><i class="fa-solid fa-heart"></i></div>
           </div>
         </div>
       </div>
