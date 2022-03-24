@@ -4,7 +4,7 @@
   @parent
   <h1>Rese</h1>
   <div>
-    <form action="{{ route('shop.search') }}" method="post">
+    <form action="{{ route('shop.search') }}" method="get">
       @csrf
     <select name="area">
       <option value="">All area</option>
@@ -20,6 +20,9 @@
     </select>
     <input type="text" name="name" placeholder="Search...">
     </form>
+  </div>
+  <div>
+    <a href="/logout" method="get">ログアウト</a>
   </div>
 @endsection
 

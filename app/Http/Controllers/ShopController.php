@@ -7,20 +7,18 @@ use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
 
+
 class ShopController extends Controller
 {
     public function index(Request $request) {
         $items = Shop::all();
         $areas = Area::all();
         $genres = Genre::all();
-        return view('index', ['items' => $items, 'area' => $areas, 'genre' => $genres]);
+        $msg = 'ログインしていません';
+        return view('index', ['items' => $items, 'area' => $areas, 'genre' => $genres, 'message' => $msg]);
     }
 
     public function detail(Request $request) {
-        $data = [
-            'id'=> $request->id,
-            
-        ]
 
     }
 

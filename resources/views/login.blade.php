@@ -1,14 +1,13 @@
 @extends('layouts.layout')
-@section('title','register')
+@section('title','login')
 @section('content')
 <div>
   <div>
-    <form action="{{ route('register') }}" method="POST">
+    <form action="/login" method="POST">
       @csrf
-      <input type="text" name="name" placeholder="name">
       <input type="email" name="email" placeholder="email">
       <input type="password" name="password" placeholder="password">
-      <input type="submit" value="create">
+      <input type="submit" value="ログイン">
     </form>
   </div>
 </div>

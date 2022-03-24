@@ -2,24 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\AuthenticationController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', [ShopController::class, 'index']);
+Route::get('/', [ShopController::class, 'search'])->name('shop.search');
+Route::get('/register', [AuthenticationController::class, 'showRegister']);
+Route::post('/register', [AuthenticationController::class, 'register'])->name('register');
+Route::get('/thanks', [AuthenticationController::class, 'thanks']);
+Route::get('/login', [AuthenticationController::class, 'showLogin']);
+Route::post('/login', [AuthenticationController::class, 'login']);
+Route::get('/logout', [AuthenticationController::class, 'logout']);
 
-Route::get('/', [ShopController::class, 'index']
-);
-Route::post('/',[ShopController::class, 'search'])->name('shop.search');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
