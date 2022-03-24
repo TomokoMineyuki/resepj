@@ -39,8 +39,9 @@ class AuthenticationController extends Controller
         
         $request->authenticate();
         $request->session()->regenerate();
-
+        
         return redirect('/');
+
     }
 
     public function logout(Request $request) {

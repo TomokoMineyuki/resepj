@@ -14,8 +14,7 @@ class ShopController extends Controller
         $items = Shop::all();
         $areas = Area::all();
         $genres = Genre::all();
-        $msg = 'ログインしていません';
-        return view('index', ['items' => $items, 'area' => $areas, 'genre' => $genres, 'message' => $msg]);
+        return view('index', ['items' => $items, 'area' => $areas, 'genre' => $genres]);
     }
 
     public function detail(Request $request) {
