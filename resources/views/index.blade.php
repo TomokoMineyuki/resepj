@@ -28,6 +28,7 @@
 
 @section('content')
   <div class="flex__item">
+
     @foreach($items as $item)
       <div class="shop__card">
         <div class="card__img">

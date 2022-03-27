@@ -37,8 +37,12 @@ class AuthenticationController extends Controller
 
     public function login(LoginRequest $request) {
         
-        $request->authenticate();
-        $request->session()->regenerate();
+        /*$request->authenticate();
+        $request->session()->regenerate();*/
+
+        $email = $request->email;
+        $password = $request->password;
+        Auth::attempt(['email' => $email, 'password' => $password]);
         
         return redirect('/');
 

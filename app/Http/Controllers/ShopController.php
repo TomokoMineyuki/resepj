@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
-
+use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
@@ -18,7 +18,8 @@ class ShopController extends Controller
     }
 
     public function detail(Request $request) {
-
+        $items = Shop::where('id', $request->id)->first();
+        return view('detail', ['items' => $items]);
     }
 
     public function search(Request $request) {
