@@ -42,7 +42,8 @@
           </div>
           <div class="crad__nav">
             <a class="card__btn" href="/detail/{{$item->id}}">詳しくみる</a>
-            <div class="card__like"><i class="fa-solid fa-heart"></i></div>
+            <a href="{{ route('shop.like', ['id' => $item->id]) }}" method="get">
+            <div class="card__like"><i class="fa-solid fa-heart"></i></a></div>
           </div>
         </div>
       </div>
