@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
+use App\Models\ShopLike;
 use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
@@ -14,7 +15,11 @@ class ShopController extends Controller
         $items = Shop::all();
         $areas = Area::all();
         $genres = Genre::all();
-        return view('index', ['items' => $items, 'area' => $areas, 'genre' => $genres]);
+        //↓現状のshop_likesテーブルの中身を検索したい
+        $users = Auth::all();
+        $likes = ShopLike::where($users->id,)->where($items->id)->first();
+
+        return view('index', ['items' => $items, 'area' => $areas, 'genre' => $genres, 'like' => $likes]);
     }
 
     public function detail(Request $request) {

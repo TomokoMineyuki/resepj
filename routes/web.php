@@ -21,5 +21,5 @@ Route::post('/reservation', [ReservationController::class, 'store'])->name('rese
 Route::get('/reservation/{id?}', [ReservationController::class, 'destroy'])->name('destroy');
 Route::get('/mypage', [UserController::class, 'index']);
 Route::get('/shop/like', [ShopLikeController::class, 'like'])->name('shop.like');
-Route::get('/shop/unlike', [ShopLikeController::class, 'unlike']);
+Route::get('/shop/unlike', [ShopLikeController::class, 'unlike'])->name('shop.unlike');
 

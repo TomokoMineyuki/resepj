@@ -42,8 +42,14 @@
           </div>
           <div class="crad__nav">
             <a class="card__btn" href="/detail/{{$item->id}}">詳しくみる</a>
-            <a href="{{ route('shop.like', ['id' => $item->id]) }}" method="get">
-            <div class="card__like"><i class="fa-solid fa-heart"></i></a></div>
+            <div class="card__like">
+              @empty ( $like )
+              <a href="{{ route('shop.like', ['id' => $item->id]) }}" method="get">
+              @else
+              <a href="{{ route('shop.unlike', ['id' => $item->id]) }}" method="get">
+              @endempty
+              <i class="fa-solid fa-heart"></i></a>
+            </div>
           </div>
         </div>
       </div>
