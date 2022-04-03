@@ -7,10 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shop extends Model
 {
-    public function area() {
-        return $this->belongsTo('App\Models\Area');
+    public function area() 
+    {
+        return $this->belongsTo(Area::class);
     }
-    public function genre() {
-        return $this->belongsTo('App\Models\Genre');
+
+    public function genre() 
+    {
+        return $this->belongsTo(Genre::class);
+    }
+
+    public function shop_likes() 
+    {
+        return $this->hasMany(ShopLike::class);
     }
 }

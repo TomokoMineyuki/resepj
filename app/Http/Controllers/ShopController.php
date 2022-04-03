@@ -11,23 +11,23 @@ use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
-    public function index(Request $request) {
-        $items = Shop::all();
+    public function index() 
+    {
+        $shops = Shop::with(['shop_likes', 'area', 'genre'])->get();
         $areas = Area::all();
         $genres = Genre::all();
-        //↓現状のshop_likesテーブルの中身を検索したい
-        $users = Auth::all();
-        $likes = ShopLike::where($users->id,)->where($items->id)->first();
-
-        return view('index', ['items' => $items, 'area' => $areas, 'genre' => $genres, 'like' => $likes]);
+        return view('index', ['shops' => $shops, 'areas' => $areas, 'genres' => $genres]);
     }
 
-    public function detail(Request $request) {
-        $items = Shop::where('id', $request->id)->first();
-        return view('detail', ['items' => $items]);
+    public function detail(Request $request) 
+    {
+        
+        $shop = Shop::where('id', $request->id)->first();
+        return view('detail', ['shop' => $shop]);
     }
 
-    public function search(Request $request) {
+    public function search(Request $request) 
+    {
         unset($request['_token']);
         if ($request->area == null && $request->genre == null) {
             $items = Shop::where('name', 'LIKE', "%{$request->name}%")->get();
@@ -35,7 +35,6 @@ class ShopController extends Controller
             $items = Shop::where('genre_id', $request->genre)->get();
         } elseif ($request -> genre == null && $request->name == null) {
             $items = Shop::where('area_id', $request->area)->get();
-            
         }
         $areas = Area::all();
         $genres = Genre::all();

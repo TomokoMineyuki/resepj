@@ -14,7 +14,8 @@ class ReservationController extends Controller
         return view('done');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request) 
+    {
         
         $reservation = Reservation::create([
             'user_id' => Auth::id(),
@@ -26,9 +27,9 @@ class ReservationController extends Controller
         return redirect('done');
     }
 
-    public function destroy(Request $request) {
-
+    public function destroy(Request $request) 
+    {
         Reservation::find($request->id)->delete();
-        return redirect('mypage');
+        return back();
     }
 }

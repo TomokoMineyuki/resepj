@@ -12,48 +12,48 @@ use App\Http\Requests\LoginRequest;
 
 class AuthenticationController extends Controller
 {
-    public function showRegister() {
+    public function showRegister()
+    {
         return view('register');
     }
 
-    public function register(RegisterRequest $request) {
-
-        $user = User::create([
+    public function register(RegisterRequest $request) 
+    {
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('thanks');
+        return redirect('/thanks');
     }
 
-    public function thanks () {
+    public function thanks() 
+    {
         return view('thanks');
     }
 
-    public function showLogin() {
+    public function showLogin() 
+    {
         return view('login');
     }
 
-    public function login(LoginRequest $request) {
-        
-        /*$request->authenticate();
-        $request->session()->regenerate();*/
-
+    public function login(LoginRequest $request) 
+    {
         $email = $request->email;
         $password = $request->password;
-        Auth::attempt(['email' => $email, 'password' => $password]);
-        
-        return redirect('/');
 
+        if(Auth::attempt(['email' => $email, 'password' => $password])){
+            return redirect('/');
+        }
+        
+        return back();
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request) 
+    {
         Auth::logout();
 
-        /*$request->session()->invalidate();
-        $request->session()->regenerateToken();*/
-
-        return redirect('/');
+        return redirect('/login');
     }
 }

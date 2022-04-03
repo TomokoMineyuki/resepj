@@ -29,11 +29,11 @@
     <div class="shop__area">
       <h1>Rese</h1>
       <div>
-        <h2>{{$items->name}}</h2>
-        <div class="detail__img"><img src="{{$items -> photo_url}}" alt=""></div>
+        <h2>{{$shop->name}}</h2>
+        <div class="detail__img"><img src="{{$shop->photo_url}}" alt=""></div>
         <div>
-          <p class="tag">#{{$items->area->name}}#{{$items->genre->name}}</p>
-          <p class="tag">{{$items->summary}}</p>
+          <p class="tag">#{{$shop->area->name}}#{{$shop->genre->name}}</p>
+          <p class="tag">{{$shop->summary}}</p>
         </div>
         
       </div>
@@ -42,7 +42,7 @@
       <h2>予約</h2>
       <form action="{{ route('reservation') }}" method="post">
         @csrf
-        <input type="hidden" value="{{$items->id}}" name="shop_id">
+        <input type="hidden" value="{{$shop->id}}" name="shop_id">
         <input type="date" name="date">
         <input type="time" name="time" list="time">
         <datalist id="time">
@@ -70,7 +70,7 @@
         <table>
           <tr>
             <td>Shop</td>
-            <td>{{$items->name}}</td>
+            <td>{{$shop->name}}</td>
           </tr>
           <tr>
             <td>Date</td>

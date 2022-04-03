@@ -10,14 +10,16 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index (Request $request) {
+    public function index (Request $request) 
+    {
         $users = Auth::user();
 
         $items = Reservation::where('user_id', $users->id)->get();
 
-        $likes = ShopLike::where('user_id', $users->id)->get();
-
-        return view('mypage', ['user' => $users, 'item' => $items, 'like' => $likes]);
+        /*$likes = ShopLike::where('user_id', $users->id)->get();*/
+        $likes = ShopLike::with(['shop'])->get();
+        
+        return view('mypage', ['user' => $users, 'items' => $items, 'likes' => $likes]);
     }
     
 }

@@ -19,6 +19,9 @@
     margin: 10px auto;
     width: 40%;
   }
+  .liked {
+  color: pink;
+  }
 </style>
 @section('menubar')
   @parent
@@ -30,9 +33,9 @@
   <div class="mypage__flex">
     <div class="reserve__area">
       <h2>予約状況</h2>
-      @foreach ( $item as $item )
-      <a href="{{ route('destroy', ['id' => $item->id]) }}" method="get">×</a>
+      @foreach ( $items as $item )
       <h3>予約{{$item->id}}</h3>
+      <a href="{{ route('destroy', ['id' => $item->id]) }}" method="get"><i class="fa-solid fa-circle-xmark"></i></a>
       <table>
         <tr>
           <td>Shop</td>
@@ -55,10 +58,10 @@
     </div>
     <div class="shoplike__area">
       <h2>お気に入り店舗</h2>
-      @foreach ( $like as $like )
+      @foreach ( $likes as $like )
       <div>
         <div class="card__img">
-          <img src="{{$like->shop-> photo_url}}" alt="">
+          <img src="{{$like->shop->photo_url}}" alt="">
         </div>
         <div class="card__content">
           <h2 class="card__ttl">{{$like->shop->name}}</h2>
@@ -67,9 +70,13 @@
             <p class="tag">#{{$like->shop->genre->name}}</p>
           </div>
           <div class="crad__nav">
-            <a class="card__btn" href="/detail/{{$item->id}}">詳しくみる</a>
-            <a href="{{ route('shop.like', ['id' => $item->id]) }}" method="get">
-            <div class="card__like"><i class="fa-solid fa-heart"></i></a></div>
+            <a class="card__btn" href="/detail/{{$like->shop->id}}">詳しくみる</a>
+            <div class="card__like">
+              <span>
+                <a href="{{ route('shop.unlike', ['id' => $like->id]) }}" method="get">
+                <i class="fa-solid fa-heart liked"></i></a>
+              </span>
+            </div>
           </div>
         </div>
       </div>      
