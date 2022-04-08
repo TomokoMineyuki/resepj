@@ -16,9 +16,8 @@ class UserController extends Controller
 
         $items = Reservation::where('user_id', $users->id)->get();
 
-        /*$likes = ShopLike::where('user_id', $users->id)->get();*/
-        $likes = ShopLike::with(['shop'])->get();
-        
+        $likes = ShopLike::with(['shop'])->where('user_id', $users->id)->get();
+
         return view('mypage', ['user' => $users, 'items' => $items, 'likes' => $likes]);
     }
     

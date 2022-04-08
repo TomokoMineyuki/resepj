@@ -51,19 +51,19 @@
           <div class="crad__nav">
             <a class="card__btn" href="{{ route('shop.detail', ['id' => $shop->id]) }}">詳しくみる</a>
             <div class="card__like">
-              @foreach($shop->shop_likes as $shop->shop_like)
-              @if ( empty($shop->shop_like->user_id === Auth::id()) )
+              @if (in_array(Auth::id(), array_column($shop->shop_likes->toArray(), 'user_id')))
               <span>
-                <a href="{{ route('shop.like', ['id' => $shop->id]) }}" method="get">
-                <i class="fa-solid fa-heart unliked"></i></a>
-              </span>
-              @else
-              <span>
-                <a href="{{ route('shop.unlike', ['id' => $shop->shop_like->id]) }}" method="get">
+                <a href="{{ route('shop.unlike', ['id' => $shop->id]) }}" method="get">
                 <i class="fa-solid fa-heart liked"></i></a>
               </span>
+              @else
+
+                <span>
+                  <a href="{{ route('shop.like', ['id' => $shop->id]) }}" method="get">
+                  <i class="fa-solid fa-heart unliked"></i></a>
+                </span>
+
               @endif
-              @endforeach
             </div>
           </div>
         </div>

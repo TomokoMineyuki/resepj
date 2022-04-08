@@ -27,6 +27,23 @@
         box-sizing: border-box;
         font-size: 14px;
       }
+      .use_icon{
+        display: inline-block;
+        font-family: "Font Awesome 4.7 Free";
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .form input i {
+	      position: absolute;
+	      top: 8px;
+	      left: 0;
+	      padding: 9px 8px;
+	      transition: 0.3s;
+	      color: #aaaaaa;
+      }
       .form button {
         font-family: "Roboto", sans-serif;
         text-transform: uppercase;
@@ -89,19 +106,15 @@
       .container .info span .fa {
         color: #EF3B3A;
       }
-      body {
-        background: #76b852; /* fallback for old browsers */
-        background: rgb(141,194,111);
-        background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
-        font-family: "Roboto", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;      
-      }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
-  
-  
-  <i class="fa-solid fa-envelope"></i>
-  <i class="fa-solid fa-heart"></i>
+  <body>
+    @section('menubar')
+    @show
+    <div>
+    @yield('content')
+    </div>
+    
+  </body>
 </html>

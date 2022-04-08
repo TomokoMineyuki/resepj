@@ -70,7 +70,7 @@
             <p class="tag">#{{$like->shop->genre->name}}</p>
           </div>
           <div class="crad__nav">
-            <a class="card__btn" href="/detail/{{$like->shop->id}}">詳しくみる</a>
+            <a class="card__btn" href="{{ route('shop.detail', ['id' => $like->shop->id]) }}">詳しくみる</a>
             <div class="card__like">
               <span>
                 <a href="{{ route('shop.unlike', ['id' => $like->id]) }}" method="get">
