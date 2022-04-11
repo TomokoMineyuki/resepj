@@ -14,9 +14,8 @@ class ReservationController extends Controller
         return view('done');
     }
 
-    public function store(Request $request) 
+    public function store(ReservationRequest $request) 
     {
-        
         $reservation = Reservation::create([
             'user_id' => Auth::id(),
             'shop_id' => $request->shop_id,
@@ -29,7 +28,7 @@ class ReservationController extends Controller
 
     public function destroy(Request $request) 
     {
-        Reservation::find($request->id)->delete();
+        Reservation::find($request->reservation_id)->delete();
         return back();
     }
 }

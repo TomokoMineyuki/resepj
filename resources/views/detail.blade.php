@@ -1,28 +1,29 @@
 @extends('layouts.layout')
 @section('title','rese')
-<style>
-  .detail__flex{
-        background-color: #eee;
-        padding:  10px 20px;
-        display: flex;
-        justify-content: center;
-      }
-  .reserve__area {
-    width: 40%;
-    margin: 10px auto;
-    padding: 10px;
-    background-color: #005bdb;
-    color: #FFF;
-  }
-  .shop__area {
-    padding: 10px;
-    margin: 10px auto;
-    width: 40%;
-  }
-.detail__img img{
-    width: 80%;
-      }
-</style>
+
+@section('menubar')
+  @parent
+  <div class="menu__flex">
+    <div class="menu__logo">
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+      <label for="menu-toggle">
+        <img src="/img/logo.png" class="menu__img">
+      </label>
+      <div class="drawer-menu">
+        <label for="menu-toggle">
+          <img src="/img/close.png">
+        </label>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/register" method="get">Registration</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </div>
+      <label for="menu-toggle" class="menu-background"></label>
+      <h1>Rese</h1>
+    </div>
+  </div>
+@endsection
 
 @section('content')
   <div class="detail__flex">
@@ -39,20 +40,21 @@
       </div>
     </div>
     <div class="reserve__area">
+      @if ($errors->any())
+      <div class="alert alert-danger">
+      <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+      </ul>
+      </div>
+      @endif
       <h2>予約</h2>
-      <form action="{{ route('reservation') }}" method="post">
+      <form action="{{ route('reservation') }}" method="post" id="reservationForm">
         @csrf
         <input type="hidden" value="{{$shop->id}}" name="shop_id">
         <input type="date" name="date">
-        <input type="time" name="time" list="time">
-        <datalist id="time">
-        <option value="17:00"></option>
-        <option value="18:00"></option>
-        <option value="19:00"></option>
-        <option value="20:00"></option>
-        <option value="21:00"></option>
-        <option value="22:00"></option>
-        </datalist>
+        <input type="time" name="time" step="1" min="17:00:00" max="22:00:00" value="17:00:00">
         <select name="number">
         <option value=1>1人</option>
         <option value=2>2人</option>
@@ -66,7 +68,7 @@
         <option value=10>10人</option>
         </select>
 
-      <div>
+      <div id="reservationOutput">
         <table>
           <tr>
             <td>Shop</td>
@@ -74,22 +76,43 @@
           </tr>
           <tr>
             <td>Date</td>
-            <td></td>
+            <td><span id="reservationOutputDate"></span></td>
           </tr>
           <tr>
             <td>Time</td>
-            <td></td>
+            <td><span id="reservationOutputTime"></span></td>
           </tr>
           <tr>
             <td>Number</td>
-            <td></td>
+            <td><span id="reservationOutputNumber"></span></td>
           </tr>
         </table>
         <input type="submit" value="予約する">
         </form>
       </div>
-
-      
     </div>
   </div>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      getValue();
+      var $formObject = document.getElementById( "reservationForm" );
+      for( var $i = 0; $i < $formObject.length; $i++ ) {
+              $formObject.elements[$i].onkeyup = function(){
+                  getValue();
+              };
+              $formObject.elements[$i].onchange = function(){
+                  getValue();
+              };
+          }
+          document.getElementById( "reservationOutputLength" ).innerHTML = $formObject.length;
+      }
+      function getValue() {
+          var $formObject = document.getElementById( "reservationForm" );
+          document.getElementById( "reservationOutputDate" ).innerHTML = $formObject.date.value;
+          document.getElementById( "reservationOutputTime" ).innerHTML = $formObject.time.value;
+          document.getElementById( "reservationOutputNumber" ).innerHTML = $formObject.number.value;
+      }
+  </script>
+
 @endsection

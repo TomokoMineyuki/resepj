@@ -24,11 +24,9 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            /*'user_id' => 'required',
-            'shop_id' => 'required',*/
             'date' => 'required|date',
-            'time' => 'required',
-            'numbar' => 'required|numeric'
+            'time' => 'required|date_format:H:i:s',
+            'number' => 'required|numeric'
         ];
     }
 }

@@ -22,7 +22,7 @@ class ShopController extends Controller
     public function detail(Request $request) 
     {
         
-        $shop = Shop::where('id', $request->id)->first();
+        $shop = Shop::where('id', $request->shop_id)->first();
         return view('detail', ['shop' => $shop]);
     }
 

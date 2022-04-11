@@ -1,31 +1,28 @@
 @extends('layouts.layout')
 @section('title','rese')
-<style>
-  .mypage__flex{
-    background-color: #eee;
-    padding:  10px 20px;
-    display: flex;
-    justify-content: center;
-  }
-  .reserve__area {
-    width: 40%;
-    margin: 10px auto;
-    padding: 10px;
-    background-color: #005bdb;
-    color: #FFF;
-  }
-  .shoplike__area {
-    padding: 10px;
-    margin: 10px auto;
-    width: 40%;
-  }
-  .liked {
-  color: pink;
-  }
-</style>
+
 @section('menubar')
   @parent
-  <h1>Rese</h1>
+  <div class="menu__flex">
+    <div class="menu__logo">
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+      <label for="menu-toggle">
+        <img src="/img/logo.png" class="menu__img">
+      </label>
+      <div class="drawer-menu">
+        <label for="menu-toggle">
+          <img src="/img/close.png">
+        </label>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/logout" method="get">Logout</a></li>
+          <li><a href="/mypage">Mypage</a></li>
+        </ul>
+      </div>
+      <label for="menu-toggle" class="menu-background"></label>
+      <h1>Rese</h1>
+    </div>
+</div>
 @endsection
 @section('content')
 <div>
@@ -35,7 +32,7 @@
       <h2>予約状況</h2>
       @foreach ( $items as $item )
       <h3>予約{{$item->id}}</h3>
-      <a href="{{ route('destroy', ['id' => $item->id]) }}" method="get"><i class="fa-solid fa-circle-xmark"></i></a>
+      <a href="/reservation/{{$item->id}}" method="get"><i class="fa-solid fa-circle-xmark"></i></a>
       <table>
         <tr>
           <td>Shop</td>
@@ -69,8 +66,8 @@
             <p class="tag">#{{$like->shop->area->name}}</p>
             <p class="tag">#{{$like->shop->genre->name}}</p>
           </div>
-          <div class="crad__nav">
-            <a class="card__btn" href="{{ route('shop.detail', ['id' => $like->shop->id]) }}">詳しくみる</a>
+          <div class="card__nav">
+            <a class="card__btn" href="/detail/{{$like->shop->id}}">詳しくみる</a>
             <div class="card__like">
               <span>
                 <a href="{{ route('shop.unlike', ['id' => $like->id]) }}" method="get">
@@ -84,4 +81,5 @@
     </div>
   </div>
 </div>
+
 @endsection

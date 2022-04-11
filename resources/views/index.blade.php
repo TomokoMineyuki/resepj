@@ -1,18 +1,29 @@
 @extends('layouts.layout')
 @section('title','rese')
-<style>
-  .liked {
-  color: pink;
-  }
-  .unliked {
-    color: silver;
-  }
-</style>
+
 @section('menubar')
   @parent
-  <h1>Rese</h1>
-  <div>
-    <form action="{{ route('shop.search') }}" method="get">
+  <div class="menu__flex">
+    <div class="menu__logo">
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+      <label for="menu-toggle">
+        <img src="/img/logo.png" class="menu__img">
+      </label>
+      <div class="drawer-menu">
+        <label for="menu-toggle">
+          <img src="/img/close.png">
+        </label>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/register" method="get">Registration</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </div>
+      <label for="menu-toggle" class="menu-background"></label>
+      <h1>Rese</h1>
+    </div>
+  <div class="menu__search">
+    <form action="{{ route('shop.search') }}" method="get" id="form">
       @csrf
     <select name="area">
       <option value="">All area</option>
@@ -26,12 +37,12 @@
       <option value="{{$genre->id}}">{{$genre->name}}</option>
       @endforeach
     </select>
+    <div class="search__icon">
     <input type="text" name="name" placeholder="Search...">
+    </div>
     </form>
   </div>
-  <div>
-    <a href="/logout" method="get">ログアウト</a>
-  </div>
+</div>
 @endsection
 
 @section('content')
@@ -49,7 +60,7 @@
             <p class="tag">#{{$shop->genre->name}}</p>
           </div>
           <div class="crad__nav">
-            <a class="card__btn" href="{{ route('shop.detail', ['id' => $shop->id]) }}">詳しくみる</a>
+            <a class="card__btn" href="/detail/{{$shop->id}}">詳しくみる</a>
             <div class="card__like">
               @if (in_array(Auth::id(), array_column($shop->shop_likes->toArray(), 'user_id')))
               <span>

@@ -13,12 +13,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/shop/unlike', [ShopLikeController::class, 'unlike'])->name('shop.unlike');
     Route::get('/done', [ReservationController::class, 'done']);
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation');
-    Route::get('/reservation', [ReservationController::class, 'destroy'])->name('destroy');
+    Route::get('/reservation/{reservation_id}', [ReservationController::class, 'destroy'])->name('destroy');
 });
 
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/shop/search', [ShopController::class, 'search'])->name('shop.search');
-Route::get('/detail', [ShopController::class, 'detail'])->name('shop.detail');
+Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shop.detail');
 Route::get('/register', [AuthenticationController::class, 'showRegister']);
 Route::post('/register', [AuthenticationController::class, 'register'])->name('register');
 Route::get('/thanks', [AuthenticationController::class, 'thanks']);
