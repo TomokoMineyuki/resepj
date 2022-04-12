@@ -47,7 +47,6 @@
 
 @section('content')
   <div class="flex__item">
-
     @foreach($shops as $shop)
       <div class="shop__card">
         <div class="card__img">
@@ -55,11 +54,9 @@
         </div>
         <div class="card__content">
           <h2 class="card__ttl">{{$shop->name}}</h2>
-          <div>
-            <p class="tag">#{{$shop->area->name}}</p>
-            <p class="tag">#{{$shop->genre->name}}</p>
-          </div>
-          <div class="crad__nav">
+          <p class="tag">#{{$shop->area->name}}</p>
+          <p class="tag">#{{$shop->genre->name}}</p>
+          <div class="card__nav">
             <a class="card__btn" href="/detail/{{$shop->id}}">詳しくみる</a>
             <div class="card__like">
               @if (in_array(Auth::id(), array_column($shop->shop_likes->toArray(), 'user_id')))
@@ -68,12 +65,10 @@
                 <i class="fa-solid fa-heart liked"></i></a>
               </span>
               @else
-
-                <span>
-                  <a href="{{ route('shop.like', ['id' => $shop->id]) }}" method="get">
-                  <i class="fa-solid fa-heart unliked"></i></a>
-                </span>
-
+              <span>
+                <a href="{{ route('shop.like', ['id' => $shop->id]) }}" method="get">
+                <i class="fa-solid fa-heart unliked"></i></a>
+              </span>
               @endif
             </div>
           </div>

@@ -26,9 +26,9 @@
 @endsection
 
 @section('content')
-<div>
-  <div class="login-page">
-    <form action="/login" method="POST" class="form">
+<div class="form__box">
+  <div class="form__header">login</div>
+    <form action="/login" method="POST" class="form__area">
       @csrf
       <div class="mail">
         <input type="email" name="email" placeholder="email">
@@ -36,9 +36,11 @@
       <div class="password">
         <input type="password" name="password" placeholder="password">
       </div>
-      <input type="submit" value="ログイン">
+      <div class="button">
+        <button type="submit">ログイン</button>
+      </div>
     </form>
-  </div>
+  
 </div>
 @endsection
 
