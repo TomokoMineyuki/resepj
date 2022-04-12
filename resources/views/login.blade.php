@@ -30,8 +30,12 @@
   <div class="login-page">
     <form action="/login" method="POST" class="form">
       @csrf
-      <input type="email" name="email" placeholder="&#xf0e0; email"  class="use_icon">
-      <input type="password" name="password" placeholder="&#xf023; password"  class="use_icon">
+      <div class="mail">
+        <input type="email" name="email" placeholder="email">
+      </div>
+      <div class="password">
+        <input type="password" name="password" placeholder="password">
+      </div>
       <input type="submit" value="ログイン">
     </form>
   </div>
