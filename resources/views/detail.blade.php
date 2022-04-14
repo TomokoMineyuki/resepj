@@ -28,64 +28,68 @@
 @section('content')
   <div class="detail__flex">
     <div class="shop__area">
+      <div class="shop__area-ttl">
+        <a href="/"><img src="/img/back.png"></a>
         <h2>{{$shop->name}}</h2>
+      </div>
         <div class="detail__img">
           <img src="{{$shop->photo_url}}" alt="">
         </div>
         <div>
           <p class="tag">#{{$shop->area->name}}#{{$shop->genre->name}}</p>
           <p class="tag">{{$shop->summary}}</p>
-        </div>
+      </div>
     </div>
     <div class="reserve__area">
-      @if ($errors->any())
-      <div class="alert alert-danger">
-      <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-      </ul>
-      </div>
-      @endif
-      <h2>予約</h2>
-      <form action="{{ route('reservation') }}" method="post" id="reservationForm" class="reserve__form">
+      <h2 class="reserve__ttl">予約</h2>
+      <form id="reservationForm" class="reserve__form" action="{{ route('reservation') }}" method="post">
         @csrf
-        <input type="hidden" value="{{$shop->id}}" name="shop_id">
-        <input type="date" name="date">
-        <input type="time" name="time" step="1" min="17:00:00" max="22:00:00" value="17:00:00">
-        <select name="number">
-          <option value=1>1人</option>
-          <option value=2>2人</option>
-          <option value=3>3人</option>
-          <option value=4>4人</option>
-          <option value=5>5人</option>
-          <option value=6>6人</option>
-          <option value=7>7人</option>
-          <option value=8>8人</option>
-          <option value=9>9人</option>
-          <option value=10>10人</option>
-        </select>
-        <div id="reservationOutput" class="output">
-          <table>
-            <tr>
-              <td>Shop</td>
-              <td>{{$shop->name}}</td>
-            </tr>
-            <tr>
-              <td>Date</td>
-              <td><span id="reservationOutputDate"></span></td>
-            </tr>
-            <tr>
-              <td>Time</td>
-              <td><span id="reservationOutputTime"></span></td>
-            </tr>
-            <tr>
-              <td>Number</td>
-              <td><span id="reservationOutputNumber"></span></td>
-            </tr>
-          </table>
-        </div>
-        <button type="submit" class="reserve__btn">予約する</button>
+        <ul>
+          <li>
+            <input type="hidden" value="{{$shop->id}}" name="shop_id">
+          </li>
+          <li>
+            <input type="date" name="date">
+          </li>
+          <li>
+            <input type="time" name="time" step="1" min="17:00:00" max="22:00:00" value="17:00:00">
+          </li>
+          <li>
+            <select name="number">
+              <option value=1>1人</option>
+              <option value=2>2人</option>
+              <option value=3>3人</option>
+              <option value=4>4人</option>
+              <option value=5>5人</option>
+              <option value=6>6人</option>
+              <option value=7>7人</option>
+              <option value=8>8人</option>
+              <option value=9>9人</option>
+              <option value=10>10人</option>
+            </select>
+          </li>
+          <li>
+            <table class="output">
+              <tr>
+                <td>Shop</td>
+                <td>{{$shop->name}}</td>
+              </tr>
+              <tr>
+                <td>Date</td>
+                <td><span id="reservationOutputDate"></span></td>
+              </tr>
+              <tr>
+                <td>Time</td>
+                <td><span id="reservationOutputTime"></span></td>
+              </tr>
+              <tr>
+                <td>Number</td>
+                <td><span id="reservationOutputNumber"></span></td>
+              </tr>
+            </table>
+          </li>
+        </ul>
+        <button type="submit">予約する</button>
       </form>
     </div>
   </div>

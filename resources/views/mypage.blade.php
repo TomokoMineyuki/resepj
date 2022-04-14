@@ -29,12 +29,12 @@
 <div class="mypage__flex">
   <div class="reservation__area">
     <h2>予約状況</h2>
-    @foreach ( $items as $item )
+    @foreach ( $items as $index => $item )
     <div class="reservation__card">
       <div class="reservation__header">
         <div class="reservation__ttl">
           <img src="/img/clock.png">
-          <h3>予約{{$item->id}}</h3>
+          <h3>予約{{$index+1}}</h3>
         </div>
         <a href="/reservation/{{$item->id}}" method="get"><i class="fa-solid fa-circle-xmark"></i></a>
       </div>

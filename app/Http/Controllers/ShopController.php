@@ -38,6 +38,6 @@ class ShopController extends Controller
         }
         $areas = Area::all();
         $genres = Genre::all();
-        return view('index',['items' => $items, 'area' => $areas, 'genre' => $genres]);
+        return view('index',['shops' => $items, 'areas' => $areas, 'genres' => $genres]);
     }
 }

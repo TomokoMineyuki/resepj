@@ -218,6 +218,11 @@
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       }
 
+
+
+
+
+
       .detail__flex{
         background-color: #eee;
         padding:  10px 20px;
@@ -229,17 +234,71 @@
         margin: 10px auto;
         width: 40%;
       }
+      .shop__area-ttl {
+        display: flex;
+        align-items: center;
+      }
+      .shop__area-ttl img{
+        margin-right: 10px;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+      }
       .reserve__area {
         width: 40%;
         margin: 10px auto;
+        padding: 20px;
         background-color: #005bdb;
         color: #FFF;
+        border-radius:5px 5px 0 0;
       }
-      .reserve__form {
+      .reserve__area ul {
+        margin: 0;
+        padding: 0;
+        list-style-type:none;
+      }
+      .reserve__area li {
+        position: relative;
+      }
+      .reserve__ttl {
+        display:block;
+        background: #005bdb;
+        color:white;
+        margin:0;
+        padding: 0.75em 0;
+        font-weight: normal;
+        border-radius:5px 5px 0 0;
+      }
+      .reserve__form{
+        border-top: none;
+      }
+      .reserve__area input {
+        display:block;
+        width:100%;
+        height:15px;
+        border: 0;
+        outline:none;
+        padding:3em 1em 1em;
+      }
+      .reserve__area select {
+        display:block;
+        width:100%;
+        height:15px;
+        border: 0;
+        outline:none;
+        padding:3em 1em 1em;
+      }
+      .reserve__area button {
+        display:block;
+        border: 0;
         width: 100%;
+        text-align: center;
+        background: #002bba;
+        padding: 1em;
+        color:white;
+        cursor:pointer;
       }
       .output {
-        margin: 10px 0;
+        margin: 10px 0 50px;
+        width: 100%;
         background-color: #6c8bf0;
       }
       .reserve__btn {
@@ -248,12 +307,16 @@
         text-align: center;
         background-color: #002bba;
         color: #FFF;
-        margin: auto 0px 0px;
         padding: 15px 0;
       }
       .detail__img img{
         width: 80%;
       }
+
+
+
+
+
 
       .form__box {
         width: 360px;
