@@ -67,7 +67,7 @@
         justify-content: space-between;
       }
       .menu__logo {
-        padding: 10px;
+        padding: 0 10px;
         display: flex;
         align-items: center;
       }
@@ -75,19 +75,30 @@
         display: inline-block;
       }
       .menu__search {
+        height: 36px;
         align-items: center;
         background: #FFF;
-        border-radius: 5px;
-        color:  #000;
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       }
-      #form {
+
+      .search__form {
         position:relative;
         max-width:600px;
+      }
+      .search__slot {
+          position: relative;
+          background-color: transparent;
+          padding: 10px 10px 10px 0;
+          color:  #808080;
+          border-radius: 0;
+          border: none;
+          outline: none;
+          border-right: 1px solid rgba(0,0,0, 0.3);
       }
       .search__icon {
         display: inline-block;
         position: relative;
+        background-color: transparent;
       }
       .search__icon::before {
         content: "";
@@ -96,25 +107,26 @@
         background: url(/img/glass.png) no-repeat center center / auto 100%;
         display: inline-block;
         position: absolute;
-        top: 4px;
+        top: 3px;
         left: 5px;
       }
       .search__icon input {
         padding: 3px 0 3px 2em;
+        border: none;
+        outline: none;
       }
       .flex__item{
         background-color: #eee;
         padding:  10px 20px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
       }
       .shop__card {
         background-color: #FFF;
         border-radius: 5px;
         color:  #000;
         margin:  10px; 
-        width: 20%;
+        width: 240px;
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       }
       .card__img img {
@@ -158,7 +170,10 @@
       .unliked {
       color: silver;
       }
-
+      .mypage__ttl {
+        display: block;
+        text-align: center;
+      }
       .mypage__flex{
         background-color: #eee;
         padding:  10px 20px;
@@ -177,7 +192,9 @@
       .reservation__card {
         background-color: #005bdb;
         padding: 10px 20px 20px;
-        margin: 10px 0;
+        margin: 15px 0;
+        border-radius: 5px;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       }
       .reservation__header {
         display: flex;
@@ -192,7 +209,10 @@
         width: 18px;
         margin-right: 5px;
       }
-      .reservation__card td {
+      .reservation__table {
+        color: #FFF;
+      }
+      .reservation__table td {
         width: 40%;
       }
       .reservation__card a{
@@ -232,7 +252,7 @@
       .shop__area {
         padding: 10px;
         margin: 10px auto;
-        width: 40%;
+        width: calc(100vw/2);
       }
       .shop__area-ttl {
         display: flex;
@@ -243,9 +263,8 @@
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       }
       .reserve__area {
-        width: 40%;
-        margin: 10px auto;
-        padding: 20px;
+        width: calc(100vw/2);
+        position: relative;
         background-color: #005bdb;
         color: #FFF;
         border-radius:5px 5px 0 0;
@@ -263,28 +282,29 @@
         background: #005bdb;
         color:white;
         margin:0;
-        padding: 0.75em 0;
+        padding: 0.75em 0.5em;
         font-weight: normal;
         border-radius:5px 5px 0 0;
       }
       .reserve__form{
         border-top: none;
+        margin: 0;
       }
       .reserve__area input {
         display:block;
-        width:100%;
-        height:15px;
+        width:90%;
         border: 0;
         outline:none;
-        padding:3em 1em 1em;
+        padding:1em 1em 1em;
+        margin: 5px auto;
       }
       .reserve__area select {
         display:block;
-        width:100%;
-        height:15px;
+        width:90%;
         border: 0;
         outline:none;
-        padding:3em 1em 1em;
+        padding:1em 1em 1em;
+        margin: 5px auto;
       }
       .reserve__area button {
         display:block;
@@ -293,13 +313,21 @@
         text-align: center;
         background: #002bba;
         padding: 1em;
-        color:white;
-        cursor:pointer;
+        color: #FFF;
+        cursor: pointer;
+        position: absolute;
+        top: 95%;
+        left: 0%;
+        transform: translate(0px, 0px);
       }
       .output {
-        margin: 10px 0 50px;
-        width: 100%;
+        margin: 5px auto auto;
+        width: 90%;
         background-color: #6c8bf0;
+        color: #FFF;
+      }
+      .output__ttl {
+        width: 30%;
       }
       .reserve__btn {
         border: 0;
@@ -309,7 +337,10 @@
         color: #FFF;
         padding: 15px 0;
       }
-      .detail__img img{
+      .detail__img img {
+        width: 80%;
+      }
+      .detail__addition {
         width: 80%;
       }
 
@@ -320,7 +351,6 @@
 
       .form__box {
         width: 360px;
-        padding: 8% 0 0;
         margin: auto;
       }
       .form__header {
@@ -334,7 +364,6 @@
         z-index: 1;
         background: #FFFFFF;
         max-width: 400px;
-        margin: 0 auto 100px;
         padding: 40px;
         text-align: center;
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
@@ -386,9 +415,9 @@
       }
       .form__area input {
         outline: 0;
-        background: #f2f2f2;
         width: 100%;
         border: 0;
+        border-bottom: 1px solid;
         margin: 0 0 15px;
         padding: 15px 0 15px 2em;
         box-sizing: border-box;

@@ -25,7 +25,7 @@
 </div>
 @endsection
 @section('content')
-<h2>{{$user->name}}さんのマイページ</h2>
+<h2 class="mypage__ttl">{{$user->name}}さん</h2>
 <div class="mypage__flex">
   <div class="reservation__area">
     <h2>予約状況</h2>
@@ -38,7 +38,7 @@
         </div>
         <a href="/reservation/{{$item->id}}" method="get"><i class="fa-solid fa-circle-xmark"></i></a>
       </div>
-      <table>
+      <table class="reservation__table">
         <tr>
           <td>Shop</td>
           <td>{{$item->shop->name}}</td>

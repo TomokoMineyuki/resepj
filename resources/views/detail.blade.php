@@ -35,7 +35,7 @@
         <div class="detail__img">
           <img src="{{$shop->photo_url}}" alt="">
         </div>
-        <div>
+        <div class="detail__addition">
           <p class="tag">#{{$shop->area->name}}#{{$shop->genre->name}}</p>
           <p class="tag">{{$shop->summary}}</p>
       </div>
@@ -71,19 +71,19 @@
           <li>
             <table class="output">
               <tr>
-                <td>Shop</td>
+                <td class="output__ttl">Shop</td>
                 <td>{{$shop->name}}</td>
               </tr>
               <tr>
-                <td>Date</td>
+                <td class="output__ttl">Date</td>
                 <td><span id="reservationOutputDate"></span></td>
               </tr>
               <tr>
-                <td>Time</td>
+                <td class="output__ttl">Time</td>
                 <td><span id="reservationOutputTime"></span></td>
               </tr>
               <tr>
-                <td>Number</td>
+                <td class="output__ttl">Number</td>
                 <td><span id="reservationOutputNumber"></span></td>
               </tr>
             </table>
