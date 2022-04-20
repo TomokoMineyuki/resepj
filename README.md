@@ -116,4 +116,4 @@
 
 
 ## ER図
-![ER図](/img/readme/reseER.png)
+![ER図](/src/public/img/readme/reseER.png)
