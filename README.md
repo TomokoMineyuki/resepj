@@ -83,11 +83,21 @@
   DB_USERNAME=root
   DB_PASSWORD=root（Windowsの場合は空欄）
   ```
-- ターミナルにて、Laravelプロジェクト配下に移動し、下記コマンドでデータを挿入
+- ターミナルにて、Laravelプロジェクト配下に移動し、下記コマンドでパッケージをインストール
+  ```
+  composer install
+  ```
+- Laravelプロジェクト配下で、下記コマンドでアプリケーションキーを設定
+  ```
+  php artisan key:generate
+  ```
+
+- Laravelプロジェクト配下で、下記コマンドでデータを挿入
   ```
   php artisan migrate
   php artisan db:seed
   ```
+
 - サーバーを立ち上げる
   ```
   php artisan serve
@@ -96,7 +106,6 @@
 
 
 ## 機能一覧
-
 - ユーザー関連
   - ユーザー登録機能
   - ログイン機能
@@ -114,6 +123,14 @@
   - 「お気に入り」一覧表示
   - 予約状況の表示
 
+## ページ一覧
+  - 飲食店一覧ページ
+  - 会員登録ページ
+  - サンクスページ
+  - ログインページ
+  - マイページ
+  - 飲食店詳細ページ
+  - 予約完了ページ
 
 ## ER図
-![ER図](/src/public/img/readme/reseER.png)
+![ER図](/public/img/readme/reseER.png)

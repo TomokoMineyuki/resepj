@@ -23,22 +23,26 @@
       <h1>Rese</h1>
     </div>
   <div class="menu__search">
-    <form id="searchForm" class="search__form" action="{{ route('shop.search') }}" method="get">
+    <form class="search__form" action="{{ route('shop.search') }}" method="get">
       @csrf
-    <select name="area" id="area" class="search__slot">
-      <option value="{{ old('area') }}">All area</option>
+    <select name="area" class="search__slot" onchange="submit(this.form)">
+      <option value = "">All area</option>
       @foreach($areas as $area)
+      @if(!empty($area->id))
+      <option value="{{$area->id}}" selected>{{$area->name}}</option>
+      @else
       <option value="{{$area->id}}">{{$area->name}}</option>
+      @endif
       @endforeach
     </select>
-    <select name="genre" id="genre" class="search__slot">
-      <option value="{{ old('genre') }}">All genre</option>
+    <select name="genre" class="search__slot" onchange="submit(this.form)">
+      <option value = "" selected>All genre</option>
       @foreach($genres as $genre)
       <option value="{{$genre->id}}">{{$genre->name}}</option>
       @endforeach
     </select>
     <div class="search__icon">
-    <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Search...">
+    <input type="text" name="name" value="{{ old('name') }}" placeholder="Search..." onchange="submit(this.form)">
     </div>
     </form>
   </div>
@@ -76,5 +80,4 @@
       </div>
     @endforeach
   </div>
-
 @endsection
