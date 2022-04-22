@@ -30,16 +30,16 @@ class ShopController extends Controller
     {
         unset($request['_token']);
         if ($request->area == null && $request->genre == null) {
-            $items = Shop::where('name', 'LIKE', "%{$request->name}%")->get();
+            $shops = Shop::where('name', 'LIKE', "%{$request->name}%")->get();
         } elseif ($request->area == null && $request->name == null) {
-            $items = Shop::where('genre_id', $request->genre)->get();
+            $shops = Shop::where('genre_id', $request->genre)->get();
         } elseif ($request -> genre == null && $request->name == null) {
-            $items = Shop::where('area_id', $request->area)->get();
+            $shops = Shop::where('area_id', $request->area)->get();
         } else {
-            $items = Shop::where('area_id', $request->area)->where('genre_id', $request->genre)->get();
+            $shops = Shop::where('area_id', $request->area)->where('genre_id', $request->genre)->get();
         }
         $areas = Area::all();
         $genres = Genre::all();
-        return view('index',['shops' => $items, 'areas' => $areas, 'genres' => $genres]);
+        return view('index',['shops' => $shops, 'areas' => $areas, 'genres' => $genres, 'area_id' => $request->area, 'genre_id' => $request->genre, 'search_word' => $request->name]);
     }
 }

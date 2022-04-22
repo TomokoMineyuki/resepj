@@ -28,21 +28,29 @@
     <select name="area" class="search__slot" onchange="submit(this.form)">
       <option value = "">All area</option>
       @foreach($areas as $area)
-      @if(!empty($area->id))
-      <option value="{{$area->id}}" selected>{{$area->name}}</option>
-      @else
-      <option value="{{$area->id}}">{{$area->name}}</option>
-      @endif
+        @if(!empty($area_id) && ($area->id == $area_id))
+          <option value="{{$area->id}}" selected>{{$area->name}}</option>
+        @else
+          <option value="{{$area->id}}">{{$area->name}}</option>
+        @endif
       @endforeach
     </select>
     <select name="genre" class="search__slot" onchange="submit(this.form)">
       <option value = "" selected>All genre</option>
       @foreach($genres as $genre)
-      <option value="{{$genre->id}}">{{$genre->name}}</option>
+        @if(!empty($genre_id) && ($genre->id == $genre_id))
+          <option value="{{$genre->id}}" selected>{{$genre->name}}</option>
+        @else
+          <option value="{{$genre->id}}">{{$genre->name}}</option>
+        @endif
       @endforeach
     </select>
     <div class="search__icon">
-    <input type="text" name="name" value="{{ old('name') }}" placeholder="Search..." onchange="submit(this.form)">
+      @if(!empty($search_word))
+        <input type="text" name="name" value="{{  $search_word }}" placeholder="Search..." onchange="submit(this.form)">
+      @else
+      <input type="text" name="name" value="{{ old('name') }}" placeholder="Search..." onchange="submit(this.form)">
+      @endif
     </div>
     </form>
   </div>
