@@ -5,6 +5,23 @@
   @parent
   <div class="menu__flex">
     <div class="menu__logo">
+      @if(!empty(Auth::id()))
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+      <label for="menu-toggle">
+        <img src="/img/logo.png" class="menu__img">
+      </label>
+      <div class="drawer-menu">
+        <label for="menu-toggle">
+          <img src="/img/close.png">
+        </label>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/logout" method="get">Logout</a></li>
+          <li><a href="/mypage">Mypage</a></li>
+        </ul>
+      </div>
+      <label for="menu-toggle" class="menu-background"></label>
+      @else
       <input type="checkbox" id="menu-toggle" class="menu-checkbox">
       <label for="menu-toggle">
         <img src="/img/logo.png" class="menu__img">
@@ -20,6 +37,7 @@
         </ul>
       </div>
       <label for="menu-toggle" class="menu-background"></label>
+      @endif
       <h1>Rese</h1>
     </div>
   </div>
@@ -49,7 +67,7 @@
             <input type="hidden" value="{{$shop->id}}" name="shop_id">
           </li>
           <li>
-            <input type="date" name="date">
+            <input type="date" name="date" id="date">
           </li>
           <li>
             <input type="time" name="time" step="1" min="17:00:00" max="22:00:00" value="17:00:00">
@@ -109,11 +127,20 @@
           document.getElementById( "reservationOutputLength" ).innerHTML = $formObject.length;
       }
       function getValue() {
+          var date = new Date();
+          date.setDate(date.getDate());
+          var yyyy = date.getFullYear();
+          var mm = ("0"+(date.getMonth()+1)).slice(-2);
+          var dd = ("0"+date.getDate()).slice(-2);
+          document.getElementById("date").value=yyyy+'-'+mm+'-'+dd;
+
           var $formObject = document.getElementById( "reservationForm" );
           document.getElementById( "reservationOutputDate" ).innerHTML = $formObject.date.value;
           document.getElementById( "reservationOutputTime" ).innerHTML = $formObject.time.value;
           document.getElementById( "reservationOutputNumber" ).innerHTML = $formObject.number.value;
       }
+
+    
   </script>
 
 @endsection

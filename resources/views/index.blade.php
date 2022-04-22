@@ -5,6 +5,23 @@
   @parent
   <div class="menu__flex">
     <div class="menu__logo">
+      @if(!empty(Auth::id()))
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+      <label for="menu-toggle">
+        <img src="/img/logo.png" class="menu__img">
+      </label>
+      <div class="drawer-menu">
+        <label for="menu-toggle">
+          <img src="/img/close.png">
+        </label>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/logout" method="get">Logout</a></li>
+          <li><a href="/mypage">Mypage</a></li>
+        </ul>
+      </div>
+      <label for="menu-toggle" class="menu-background"></label>
+      @else
       <input type="checkbox" id="menu-toggle" class="menu-checkbox">
       <label for="menu-toggle">
         <img src="/img/logo.png" class="menu__img">
@@ -20,6 +37,7 @@
         </ul>
       </div>
       <label for="menu-toggle" class="menu-background"></label>
+      @endif
       <h1>Rese</h1>
     </div>
   <div class="menu__search">
