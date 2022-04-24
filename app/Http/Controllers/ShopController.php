@@ -35,8 +35,12 @@ class ShopController extends Controller
             $shops = Shop::where('genre_id', $request->genre)->get();
         } elseif ($request -> genre == null && $request->name == null) {
             $shops = Shop::where('area_id', $request->area)->get();
+        } elseif ($request -> area == null) {
+            $shops = Shop::where('genre_id', $request->genre)->where('name', 'LIKE', "%{$request->name}%")->get();
+        } elseif ($request -> genre == null) {
+            $shops = Shop::where('area_id', $request->area)->where('name', 'LIKE', "%{$request->name}%")->get();
         } else {
-            $shops = Shop::where('area_id', $request->area)->where('genre_id', $request->genre)->get();
+            $shops = Shop::where('area_id', $request->area)->where('genre_id', $request->genre)->where('name', 'LIKE', "%{$request->name}%")->get();
         }
         $areas = Area::all();
         $genres = Genre::all();
