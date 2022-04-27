@@ -24,7 +24,9 @@
         border: 0;
         outline: 0;
       }
-      
+      input:-webkit-autofill {
+        transition: background-color 5000s ease-in-out 0s !important;
+      }
       .menu-checkbox {
         display: none;
       }
@@ -82,12 +84,13 @@
         display: flex;
         align-items: center;
       }
+      
       @media screen and (min-width: 559px) {
         .menu__flex {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 94%;
+          width: 92%;
           margin: 0 auto;
         }
         .menu__logo {
@@ -99,51 +102,76 @@
         display: inline-block;
       }
       .menu__search {
-        height: 36px;
         align-items: center;
         background: #FFF;
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       }
-
       .search__form {
         position:relative;
         max-width:400px;
       }
-      @media screen and (min-width: 490px) {
-        .search__form {
-          max-width:600px;
-        }
-      }
       .search__slot {
-          position: relative;
-          background-color: transparent;
-          padding: 10px 10px 10px 0;
-          color:  #808080;
-          border-radius: 0;
-          border: none;
-          outline: none;
-          border-right: 1px solid rgba(0,0,0, 0.3);
-      }
-      .search__icon {
-        display: inline-block;
+        display: block;
         position: relative;
         background-color: transparent;
+        width: 100%;
+        padding: 10px 10px 10px 0;
+        color:  #808080;
+        border-radius: 0;
+        border: none;
+        outline: none;
+      }
+      .search__icon {
+        display: block;
+        position: relative;
+        background-color: transparent;
+        width: 100%;
       }
       .search__icon::before {
         content: "";
         width: 16px;
         height: 16px;
         background: url(/img/glass.png) no-repeat center center / auto 100%;
-        display: inline-block;
+        display: block;
         position: absolute;
-        top: 3px;
+        top: 9px;
         left: 5px;
       }
       .search__icon input {
-        padding: 3px 0 3px 2em;
+        padding: 10px 0 10px 2em;
         border: none;
         outline: none;
+        width: 100%;
       }
+      @media screen and (min-width: 490px) {
+        .menu__search {
+          height: 36px;
+        }
+        .search__form {
+          max-width:600px;
+        }
+        .search__slot {
+          display: inline-block;
+          width: 25%;
+          border-right: 1px solid rgba(0,0,0, 0.3);
+        }
+        .search__icon {
+          display: inline-block;
+          width: 30%;
+        }
+        .search__icon::before {
+          display: inline-block;
+          top: 3px;
+        }
+        .search__icon input {
+          padding: 3px 0 3px 2em;
+          width: 80%;
+        }
+      }
+      
+      
+      
+      
 
       .flex__item{
         background-color: #eee;
