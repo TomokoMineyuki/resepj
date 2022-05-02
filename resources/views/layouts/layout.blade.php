@@ -69,13 +69,12 @@
         z-index: 100;
         height: 100%;
         width: 100%;
-        background-color: rgba(0, 0, 0, .5);
+        background-color: rgba(0, 0, 0, 0.5);
         cursor: pointer;
       }
       .menu-checkbox:checked ~ .menu-background {
         display: block;
       }
-
       .menu__flex {
         width: 94%;
         margin: 0 auto;
@@ -84,7 +83,6 @@
         display: flex;
         align-items: center;
       }
-      
       @media screen and (min-width: 559px) {
         .menu__flex {
           display: flex;
@@ -97,7 +95,6 @@
           padding: 0 10px;
         }
       }
-
       .menu__img {
         display: inline-block;
       }
@@ -168,21 +165,16 @@
           width: 80%;
         }
       }
-      
-      
-      
-      
-
       .flex__item{
         background-color: #eee;
         padding:  10px 20px;
       }
       @media screen and (min-width: 490px) {
         .flex__item{
-        background-color: #eee;
-        padding:  10px 0px 10px 50px;
-        display: flex;
-        flex-wrap: wrap;
+          background-color: #eee;
+          padding:  10px 0px 10px 50px;
+          display: flex;
+          flex-wrap: wrap;
         }
       }
       .shop__card {
@@ -265,18 +257,18 @@
         display: block;
         text-align: center;
       }
-        .mypage__flex{
+      .mypage__flex{
+        background-color: #eee;
+        padding:  10px 20px;
+        justify-content: center;
+      }
+      @media screen and (min-width: 767px) {
+        .mypage__flex {
           background-color: #eee;
           padding:  10px 20px;
+          display: flex;
           justify-content: center;
         }
-      @media screen and (min-width: 767px) {
-          .mypage__flex {
-              background-color: #eee;
-              padding:  10px 20px;
-              display: flex;
-              justify-content: center;
-          }
       }
       .reservation__area {
         width: 40%;
@@ -303,20 +295,20 @@
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       }
       @media screen and (min-width: 896px) {
-          .shoplike__card {
-            width: 45%;
-          }
+        .shoplike__card {
+          width: 45%;
         }
+      }
       @media screen and (max-width: 767px) {
-          .reservation__area {
-            width: 100%;
-          }
-          .shoplike__area {
-            width: 100%;
-          }
-          .shoplike__card {
-            width: 100%;
-          }
+        .reservation__area {
+          width: 100%;
+        }
+        .shoplike__area {
+          width: 100%;
+        }
+        .shoplike__card {
+          width: 100%;
+        }
       }
       .reservation__area h2 {
         color: #000;
@@ -350,13 +342,6 @@
       .reservation__card a{
         color: inherit;
       }
-      
-      
-      
-
-
-
-
       .detail__flex{
         background-color: #eee;
         padding:  10px 50px;
@@ -393,7 +378,6 @@
         left: 0%;
         transform: translate(0px, 0px);
       }
-      
       @media screen and (min-width: 490px) {
         .detail__flex{
           background-color: #eee;
@@ -419,7 +403,6 @@
           top: 95%;
         }
       }
-      
       .shop__area-ttl {
         display: flex;
         align-items: center;
@@ -429,16 +412,13 @@
         margin-right: 10px;
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       }
-      
       .detail__img img {
         width: 80%;
       }
-      
       .detail__addition p {
         font-size: 14px;
         margin-bottom: 20px;
       }
-      
       .reserve__area ul {
         margin: 0;
         padding: 0;
@@ -495,24 +475,17 @@
       .output__ttl {
         width: 30%;
       }
-
-
-
-
-
-
-
       .form__box {
         width: 360px;
         margin: auto;
       }
       .form__header {
-          border-radius: 5px 5px 0 0;
-          background: #005bdb;
-          padding: 15px 20px;
-          font-weight: normal;
-          color: #fff;
-        }
+        border-radius: 5px 5px 0 0;
+        background: #005bdb;
+        padding: 15px 20px;
+        font-weight: normal;
+        color: #fff;
+      }
       .form__area {
         z-index: 1;
         background: #FFFFFF;
@@ -527,14 +500,14 @@
         width: 100%;
       }
       .user::before {
-          content: "";
-          width: 16px;
-          height: 16px;
-          background: url(/img/user.png) no-repeat center center / auto 100%;
-          display: inline-block;
-          position: absolute;
-          top: 15px;
-          left: 5px;
+        content: "";
+        width: 16px;
+        height: 16px;
+        background: url(/img/user.png) no-repeat center center / auto 100%;
+        display: inline-block;
+        position: absolute;
+        top: 15px;
+        left: 5px;
       }
       .mail {
         display: inline-block;
@@ -542,14 +515,14 @@
         width: 100%;
       }
       .mail::before {
-          content: "";
-          width: 16px;
-          height: 16px;
-          background: url(/img/mail.png) no-repeat center center / auto 100%;
-          display: inline-block;
-          position: absolute;
-          top: 15px;
-          left: 5px;
+        content: "";
+        width: 16px;
+        height: 16px;
+        background: url(/img/mail.png) no-repeat center center / auto 100%;
+        display: inline-block;
+        position: absolute;
+        top: 15px;
+        left: 5px;
       }
       .password {
         display: inline-block;
@@ -557,14 +530,14 @@
         width: 100%;
       }
       .password::before {
-          content: "";
-          width: 16px;
-          height: 16px;
-          background: url(/img/lock.png) no-repeat center center / auto 100%;
-          display: inline-block;
-          position: absolute;
-          top: 15px;
-          left: 5px;
+        content: "";
+        width: 16px;
+        height: 16px;
+        background: url(/img/lock.png) no-repeat center center / auto 100%;
+        display: inline-block;
+        position: absolute;
+        top: 15px;
+        left: 5px;
       }
       .form__area input {
         outline: 0;
@@ -587,7 +560,6 @@
         font-size: 14px;
         cursor: pointer;
       }
-
       .content__flex {
         display: flex;
         align-items: center;
@@ -620,6 +592,5 @@
     <div>
     @yield('content')
     </div>
-    
   </body>
 </html>

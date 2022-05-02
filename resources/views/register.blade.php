@@ -28,21 +28,20 @@
 @section('content')
 <div class="form__box">
   <div class="form__header">Registration</div>
-    <form action="{{ route('register') }}" method="POST" class="form__area">
-      @csrf
-      <div class="user">
-        <input type="text" name="name" placeholder="name">
-      </div>
-      <div class="mail">
-        <input type="email" name="email" placeholder="email">
-      </div>
-      <div class="password">
-        <input type="password" name="password" placeholder="password">
-      </div>
-      <div class="button">
-        <button type="submit" value="create">登録</button>
-      </div>
-    </form>
-
+  <form action="{{ route('register') }}" method="POST" class="form__area">
+    @csrf
+    <div class="user">
+      <input type="text" name="name" placeholder="name">
+    </div>
+    <div class="mail">
+      <input type="email" name="email" placeholder="email">
+    </div>
+    <div class="password">
+      <input type="password" name="password" placeholder="password">
+    </div>
+    <div class="button">
+      <button type="submit" value="create">登録</button>
+    </div>
+  </form>
 </div>
 @endsection

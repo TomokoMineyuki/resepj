@@ -29,6 +29,7 @@ class ShopController extends Controller
     public function search(Request $request) 
     {
         unset($request['_token']);
+
         if ($request->area == null && $request->genre == null) {
             $shops = Shop::where('name', 'LIKE', "%{$request->name}%")->get();
         } elseif ($request->area == null && $request->name == null) {
@@ -42,8 +43,10 @@ class ShopController extends Controller
         } else {
             $shops = Shop::where('area_id', $request->area)->where('genre_id', $request->genre)->where('name', 'LIKE', "%{$request->name}%")->get();
         }
+
         $areas = Area::all();
         $genres = Genre::all();
+        
         return view('index',['shops' => $shops, 'areas' => $areas, 'genres' => $genres, 'area_id' => $request->area, 'genre_id' => $request->genre, 'search_word' => $request->name]);
     }
 }

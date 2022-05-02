@@ -40,39 +40,39 @@
       @endif
       <h1>Rese</h1>
     </div>
-  <div class="menu__search">
-    <form class="search__form" action="{{ route('shop.search') }}" method="get">
-      @csrf
-    <select name="area" class="search__slot" onchange="submit(this.form)">
-      <option value = "">All area</option>
-      @foreach($areas as $area)
-        @if(!empty($area_id) && ($area->id == $area_id))
-          <option value="{{$area->id}}" selected>{{$area->name}}</option>
-        @else
-          <option value="{{$area->id}}">{{$area->name}}</option>
-        @endif
-      @endforeach
-    </select>
-    <select name="genre" class="search__slot" onchange="submit(this.form)">
-      <option value = "" selected>All genre</option>
-      @foreach($genres as $genre)
-        @if(!empty($genre_id) && ($genre->id == $genre_id))
-          <option value="{{$genre->id}}" selected>{{$genre->name}}</option>
-        @else
-          <option value="{{$genre->id}}">{{$genre->name}}</option>
-        @endif
-      @endforeach
-    </select>
-    <div class="search__icon">
-      @if(!empty($search_word))
-        <input type="text" name="name" value="{{  $search_word }}" placeholder="Search..." onchange="submit(this.form)">
-      @else
-      <input type="text" name="name" value="{{ old('name') }}" placeholder="Search..." onchange="submit(this.form)">
-      @endif
+    <div class="menu__search">
+      <form class="search__form" action="{{ route('shop.search') }}" method="get">
+        @csrf
+        <select name="area" class="search__slot" onchange="submit(this.form)">
+          <option value = "">All area</option>
+          @foreach($areas as $area)
+            @if(!empty($area_id) && ($area->id == $area_id))
+              <option value="{{$area->id}}" selected>{{$area->name}}</option>
+            @else
+              <option value="{{$area->id}}">{{$area->name}}</option>
+            @endif
+          @endforeach
+        </select>
+        <select name="genre" class="search__slot" onchange="submit(this.form)">
+          <option value = "" selected>All genre</option>
+          @foreach($genres as $genre)
+            @if(!empty($genre_id) && ($genre->id == $genre_id))
+              <option value="{{$genre->id}}" selected>{{$genre->name}}</option>
+            @else
+              <option value="{{$genre->id}}">{{$genre->name}}</option>
+            @endif
+          @endforeach
+        </select>
+        <div class="search__icon">
+          @if(!empty($search_word))
+            <input type="text" name="name" value="{{  $search_word }}" placeholder="Search..." onchange="submit(this.form)">
+          @else
+          <input type="text" name="name" value="{{ old('name') }}" placeholder="Search..." onchange="submit(this.form)">
+          @endif
+        </div>
+      </form>
     </div>
-    </form>
   </div>
-</div>
 @endsection
 
 @section('content')

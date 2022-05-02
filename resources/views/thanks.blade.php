@@ -24,10 +24,10 @@
   </div>
 @endsection
 @section('content')
-<div class="content__flex">
-  <div class="content__box">
-    <p>会員登録ありがとうございます</p>
-    <a class="content__btn" href="/login">ログインする</a>
+  <div class="content__flex">
+    <div class="content__box">
+      <p>会員登録ありがとうございます</p>
+      <a class="content__btn" href="/login">ログインする</a>
+    </div>
   </div>
-</div>
 @endsection

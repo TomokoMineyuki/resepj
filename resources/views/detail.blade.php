@@ -139,8 +139,6 @@
           document.getElementById( "reservationOutputTime" ).innerHTML = $formObject.time.value;
           document.getElementById( "reservationOutputNumber" ).innerHTML = $formObject.number.value;
       }
-
-    
   </script>
 
 @endsection

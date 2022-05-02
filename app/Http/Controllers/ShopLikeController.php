@@ -13,17 +13,14 @@ class ShopLikeController extends Controller
     {
         ShopLike::create([
             'user_id' => Auth::id(),
-            /*'shop_id' => $request->shop_id,*/
             'shop_id' => $request->id,
         ]);
-
         return back();
     }
 
     public function unlike(Request $request) 
     {
         ShopLike::find($request->id)->delete();
-        /*ShopLike::find($request->shop_like_id)->delete();*/
         return back();
     }
 }

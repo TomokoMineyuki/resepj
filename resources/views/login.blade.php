@@ -28,19 +28,18 @@
 @section('content')
 <div class="form__box">
   <div class="form__header">login</div>
-    <form action="/login" method="POST" class="form__area">
-      @csrf
-      <div class="mail">
-        <input type="email" name="email" placeholder="email">
-      </div>
-      <div class="password">
-        <input type="password" name="password" placeholder="password">
-      </div>
-      <div class="button">
-        <button type="submit">ログイン</button>
-      </div>
-    </form>
-  
+  <form action="/login" method="POST" class="form__area">
+    @csrf
+    <div class="mail">
+      <input type="email" name="email" placeholder="email">
+    </div>
+    <div class="password">
+      <input type="password" name="password" placeholder="password">
+    </div>
+    <div class="button">
+      <button type="submit">ログイン</button>
+    </div>
+  </form>
 </div>
 @endsection
 

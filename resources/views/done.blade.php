@@ -21,13 +21,13 @@
       <label for="menu-toggle" class="menu-background"></label>
       <h1>Rese</h1>
     </div>
-</div>
+  </div>
 @endsection
 @section('content')
-<div class="content__flex">
-  <div class="content__box">
-    <p>ご予約ありがとうございます</p>
-    <a class="content__btn" href="/">戻る</a>
+  <div class="content__flex">
+    <div class="content__box">
+      <p>ご予約ありがとうございます</p>
+      <a class="content__btn" href="/">戻る</a>
+    </div>
   </div>
-</div>
 @endsection

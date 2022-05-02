@@ -22,8 +22,9 @@
       <label for="menu-toggle" class="menu-background"></label>
       <h1>Rese</h1>
     </div>
-</div>
+  </div>
 @endsection
+
 @section('content')
 <h2 class="mypage__ttl">{{$user->name}}さん</h2>
 <div class="mypage__flex">
