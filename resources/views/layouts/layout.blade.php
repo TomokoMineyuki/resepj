@@ -83,7 +83,7 @@
         display: flex;
         align-items: center;
       }
-      @media screen and (min-width: 559px) {
+      @media screen and (min-width: 769px) {
         .menu__flex {
           display: flex;
           align-items: center;
@@ -105,7 +105,6 @@
       }
       .search__form {
         position:relative;
-        max-width:400px;
       }
       .search__slot {
         display: block;
@@ -140,7 +139,7 @@
         outline: none;
         width: 100%;
       }
-      @media screen and (min-width: 490px) {
+      @media screen and (min-width: 769px) {
         .menu__search {
           height: 36px;
         }
@@ -169,7 +168,7 @@
         background-color: #eee;
         padding:  10px 20px;
       }
-      @media screen and (min-width: 490px) {
+      @media screen and (min-width: 769px) {
         .flex__item{
           background-color: #eee;
           padding:  10px 0px 10px 50px;
@@ -180,32 +179,22 @@
       .shop__card {
         background-color: #FFF;
         border-radius: 5px;
-        color:  #000; 
-        width: calc(90% / 4);
+        color:  #000;
+        width: 100%;
+        margin-bottom: 30px;
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+        }
+      @media screen and (min-width: 769px) {
+        .shop__card {
+          width: calc(90% / 4);
+          margin-bottom: 0px;
+        }
       }
       .shop__card:not(:nth-child(4n+4)) {
         margin-right: 2%;
       }
       .shop__card:nth-child(n+5) {
         margin-top: 30px;
-      }
-      @media not all and (min-width: 768px) {
-        .shop__card {
-          width: calc(90% / 3);
-        }
-        .shop__card:not(:nth-child(3n+3)) {
-        margin-right: 2%;
-        }
-        .shop__card:nth-child(n+4) {
-          margin-top: 30px;
-        }
-      }
-      @media screen and (max-width: 489px) {
-        .shop__card {
-          width: 100%;
-          margin-bottom: 30px;
-        }
       }
       .card__img img {
         border-radius: 5px 5px 0 0;
@@ -215,12 +204,12 @@
         padding: 0px 25px;
       }
       .card__ttl {
-        font-size: 18px;
+        font-size: 17px;
         font-weight: 600;
         margin-top: 10px;
       }
       .tag {
-        font-size: 12px;
+        font-size: 10px;
         display: inline-block;
       }
       .card__nav {
@@ -242,11 +231,6 @@
         color: #888888;
         font-size: 24px;
       }
-      @media not all and (min-width: 768px) {
-        .card__ttl {
-          font-size: 14px;
-        }
-      }
       .liked {
       color: red;
       }
@@ -262,7 +246,7 @@
         padding:  10px 20px;
         justify-content: center;
       }
-      @media screen and (min-width: 767px) {
+      @media screen and (min-width: 769px) {
         .mypage__flex {
           background-color: #eee;
           padding:  10px 20px;
@@ -299,7 +283,7 @@
           width: 45%;
         }
       }
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 768px) {
         .reservation__area {
           width: 100%;
         }
@@ -374,11 +358,11 @@
         color: #FFF;
         cursor: pointer;
         position: absolute;
-        top: 100%;
+        top: 99%;
         left: 0%;
         transform: translate(0px, 0px);
       }
-      @media screen and (min-width: 490px) {
+      @media screen and (min-width: 769px) {
         .detail__flex{
           background-color: #eee;
           padding:  10px 50px;

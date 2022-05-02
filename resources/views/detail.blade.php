@@ -140,5 +140,4 @@
           document.getElementById( "reservationOutputNumber" ).innerHTML = $formObject.number.value;
       }
   </script>
-
 @endsection
